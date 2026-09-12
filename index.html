@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        try {
+          localStorage.setItem('theme', 'dark');
+        } catch (_) {}
+        document.documentElement.classList.add('dark');
+      })();
+    </script>
+
+    <title>Chandresh P — Computer Science · Builder · Explorer</title>
+    <meta name="description" content="Personal developer portfolio of Chandresh P — Computer Science student, builder, and cloud explorer. Building things to understand how they work." />
+    <meta name="author" content="Chandresh P" />
+    <meta name="keywords" content="Chandresh P, Computer Science, Web Development, AWS, Cloud Architecture, AI, DSP, Portfolio, Coimbatore" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Chandresh P — Computer Science · Builder · Explorer" />
+    <meta property="og:description" content="Computer Science Engineering student who learns best by building things and figuring out why they work." />
+    <meta property="og:image" content="/profile.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Chandresh P — Computer Science · Builder · Explorer" />
+    <meta name="twitter:description" content="Computer Science Engineering student who learns best by building things and figuring out why they work." />
+    <meta name="twitter:image" content="/profile.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/profile.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Theme color -->
+    <meta name="theme-color" content="#0c0a09" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
