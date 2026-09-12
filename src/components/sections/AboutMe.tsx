@@ -12,23 +12,23 @@ export default function AboutMe() {
       id="about"
       ref={ref}
       aria-label="About Me"
-      className="scroll-mt-16 px-6 md:px-12 py-28 md:py-36 border-b border-stone-300 dark:border-stone-800 relative bg-[#faf9f5] dark:bg-[#0c0a09]"
+      className="scroll-mt-16 px-4 sm:px-6 md:px-12 py-16 sm:py-24 md:py-36 border-b border-stone-300 dark:border-stone-800 relative bg-[#faf9f5] dark:bg-[#0c0a09]"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="flex items-center justify-between font-mono text-xs text-stone-500 dark:text-stone-400 uppercase tracking-widest pb-6 border-b border-stone-300 dark:border-stone-800 mb-16">
+        <div className="flex items-center justify-between font-mono text-xs text-stone-500 dark:text-stone-400 uppercase tracking-widest pb-4 sm:pb-6 border-b border-stone-300 dark:border-stone-800 mb-10 sm:mb-16">
           <div className="flex items-center gap-3">
             <span className="text-accent font-bold">01</span>
             <span>/</span>
             <span>ABOUT ME</span>
           </div>
-          <span>IDENTITY // CHANDRESH P</span>
+          <span className="truncate">IDENTITY // CHANDRESH P</span>
         </div>
 
         {/* Big Editorial Statement */}
-        <blockquote className="mb-14 md:mb-18">
+        <blockquote className="mb-10 sm:mb-14 md:mb-18">
           <h2
-            className={`font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-stone-900 dark:text-stone-100 leading-[0.95] transition-all duration-700 ${
+            className={`font-display font-black text-3xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-stone-900 dark:text-stone-100 leading-[0.95] transition-all duration-700 ${
               isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >

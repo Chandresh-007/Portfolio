@@ -45,24 +45,24 @@ export default function SelectedBuilds() {
       id="builds"
       ref={ref}
       aria-label="Selected Builds"
-      className="scroll-mt-16 py-28 md:py-36 border-b border-stone-300 dark:border-stone-800 relative bg-[#faf9f5] dark:bg-[#0c0a09]"
+      className="scroll-mt-16 py-16 sm:py-24 md:py-36 border-b border-stone-300 dark:border-stone-800 relative bg-[#faf9f5] dark:bg-[#0c0a09]"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         {/* Section Header */}
         <div
-          className={`flex flex-col md:flex-row md:items-end justify-between border-b border-stone-300 dark:border-stone-800 pb-8 mb-20 md:mb-28 transition-all duration-700 ${
+          className={`flex flex-col md:flex-row md:items-end justify-between border-b border-stone-300 dark:border-stone-800 pb-6 sm:pb-8 mb-12 sm:mb-20 md:mb-28 transition-all duration-700 ${
             isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
           <div>
-            <div className="font-mono text-xs text-stone-500 dark:text-stone-400 uppercase tracking-widest mb-3">
+            <div className="font-mono text-xs text-stone-500 dark:text-stone-400 uppercase tracking-widest mb-2.5">
               02 — THINGS I'VE MADE
             </div>
-            <h2 className="font-display font-black text-4xl sm:text-6xl md:text-7xl tracking-tight text-stone-900 dark:text-stone-100 leading-none">
+            <h2 className="font-display font-black text-3xl sm:text-6xl md:text-7xl tracking-tight text-stone-900 dark:text-stone-100 leading-none">
               SELECTED BUILDS.
             </h2>
           </div>
-          <p className="font-mono text-xs text-stone-500 dark:text-stone-400 max-w-sm mt-4 md:mt-0 leading-relaxed uppercase tracking-wider">
+          <p className="font-mono text-xs text-stone-500 dark:text-stone-400 max-w-sm mt-3 md:mt-0 leading-relaxed uppercase tracking-wider">
             [ ARCHIVE: 10 BUILDS · FLAGSHIP AWS SHOWCASE · ACCORDION PHYSICAL GALLERY ]
           </p>
         </div>
@@ -70,17 +70,17 @@ export default function SelectedBuilds() {
         {/* ==================================================== */}
         {/* FLAGSHIP SHOWCASE: MOODSCAPE WITH BORDER GLOW       */}
         {/* ==================================================== */}
-        <div className="mb-32 md:mb-44">
-          <div className="border-t-2 border-stone-900 dark:border-stone-100 pt-6 mb-8 flex flex-wrap items-center justify-between font-mono text-xs">
+        <div className="mb-16 sm:mb-28 md:mb-44">
+          <div className="border-t-2 border-stone-900 dark:border-stone-100 pt-5 sm:pt-6 mb-6 sm:mb-8 flex flex-wrap items-center justify-between font-mono text-xs gap-2">
             <div className="flex items-center gap-3">
               <span className="bg-stone-900 text-stone-100 dark:bg-stone-100 dark:text-stone-900 px-2.5 py-1 font-bold">
                 FLAGSHIP BUILD
               </span>
-              <span className="text-accent font-semibold tracking-wider uppercase">
+              <span className="text-accent font-semibold tracking-wider uppercase text-[11px] sm:text-xs">
                 AUTONOMOUS CREATIVE AI AGENT / 2026
               </span>
             </div>
-            <span className="text-stone-500 dark:text-stone-400 uppercase tracking-wider">
+            <span className="text-stone-500 dark:text-stone-400 uppercase tracking-wider text-[11px] sm:text-xs">
               STATUS: {moodscape.status} · AWS SERVERLESS
             </span>
           </div>
@@ -92,15 +92,15 @@ export default function SelectedBuilds() {
             glowIntensity={0.8}
             className="overflow-hidden"
           >
-            <div className="p-8 sm:p-12 md:p-14 bg-white dark:bg-[#151311] border border-stone-300 dark:border-stone-800">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+            <div className="p-5 sm:p-10 md:p-14 bg-white dark:bg-[#151311] border border-stone-300 dark:border-stone-800">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
                 {/* Left: Overview & Story */}
                 <div className="lg:col-span-6 space-y-6">
                   <div>
                     <span className="font-mono text-xs uppercase tracking-widest text-accent font-semibold block mb-2">
                       FLAGSHIP AWS ARCHITECTURE
                     </span>
-                    <h3 className="font-display font-black text-4xl sm:text-6xl md:text-7xl tracking-tighter text-stone-900 dark:text-stone-100 leading-none mb-3">
+                    <h3 className="font-display font-black text-3xl sm:text-6xl md:text-7xl tracking-tighter text-stone-900 dark:text-stone-100 leading-none mb-3">
                       MOODSCAPE
                     </h3>
                     <p className="font-mono text-sm uppercase tracking-widest text-stone-500 dark:text-stone-400">
@@ -229,7 +229,7 @@ export default function SelectedBuilds() {
         {/* ==================================================== */}
         {/* REACT BITS: ACCORDION GALLERY (PROJECT ARCHIVE)     */}
         {/* ==================================================== */}
-        <div className="mb-24 md:mb-32">
+        <div className="mb-16 sm:mb-24 md:mb-32">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-4 border-b border-stone-300 dark:border-stone-800">
             <div>
               <span className="font-mono text-xs uppercase tracking-widest text-accent font-bold block mb-1">

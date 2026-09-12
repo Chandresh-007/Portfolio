@@ -128,6 +128,7 @@ const useAnimationLoop = (
   const lastTimestampRef = useRef<number | null>(null);
   const offsetRef = useRef(0);
   const velocityRef = useRef(0);
+  const inViewRef = useRef(true);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -156,6 +157,12 @@ const useAnimationLoop = (
     }
 
     const animate = (timestamp: number) => {
+      if (!inViewRef.current) {
+        rafRef.current = null;
+        lastTimestampRef.current = null;
+        return;
+      }
+
       if (lastTimestampRef.current === null) {
         lastTimestampRef.current = timestamp;
       }
@@ -182,9 +189,30 @@ const useAnimationLoop = (
       rafRef.current = requestAnimationFrame(animate);
     };
 
+    const targetEl = track.parentElement || track;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const inView = entries[0]?.isIntersecting ?? true;
+        inViewRef.current = inView;
+        if (!inView) {
+          if (rafRef.current !== null) {
+            cancelAnimationFrame(rafRef.current);
+            rafRef.current = null;
+          }
+          lastTimestampRef.current = null;
+        } else if (rafRef.current === null) {
+          lastTimestampRef.current = null;
+          rafRef.current = requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0 }
+    );
+    observer.observe(targetEl);
+
     rafRef.current = requestAnimationFrame(animate);
 
     return () => {
+      observer.disconnect();
       if (rafRef.current !== null) {
         cancelAnimationFrame(rafRef.current);
         rafRef.current = null;

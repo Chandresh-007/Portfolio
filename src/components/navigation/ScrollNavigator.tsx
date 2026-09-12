@@ -15,21 +15,48 @@ export default function ScrollNavigator() {
   const [activeIdx, setActiveIdx] = useState(0);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mediaQuery = window.matchMedia('(min-width: 1536px)');
+
+    let ticking = false;
     const handleScroll = () => {
-      const scrollY = window.scrollY + window.innerHeight * 0.35;
-      for (let i = sectionList.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sectionList[i].id);
-        if (el && el.offsetTop <= scrollY) {
-          setActiveIdx(i);
-          return;
-        }
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY + window.innerHeight * 0.35;
+          for (let i = sectionList.length - 1; i >= 0; i--) {
+            const el = document.getElementById(sectionList[i].id);
+            if (el && el.offsetTop <= scrollY) {
+              setActiveIdx((prev) => (prev === i ? prev : i));
+              ticking = false;
+              return;
+            }
+          }
+          setActiveIdx((prev) => (prev === 0 ? prev : 0));
+          ticking = false;
+        });
+        ticking = true;
       }
-      setActiveIdx(0);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    if (mediaQuery.matches) {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
+    }
+
+    const handleMediaChange = (e: MediaQueryListEvent) => {
+      if (e.matches) {
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+      } else {
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+    mediaQuery.addEventListener('change', handleMediaChange);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      mediaQuery.removeEventListener('change', handleMediaChange);
+    };
   }, []);
 
   const handleItemClick = (index: number) => {

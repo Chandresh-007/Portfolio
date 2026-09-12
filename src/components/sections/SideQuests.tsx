@@ -11,27 +11,27 @@ export default function SideQuests() {
       id="sidequests"
       ref={ref}
       aria-label="Side Quests"
-      className="scroll-mt-16 py-28 md:py-36 border-b border-stone-300 dark:border-stone-800 relative bg-[#faf9f5] dark:bg-[#0c0a09] overflow-hidden"
+      className="scroll-mt-16 py-16 sm:py-24 md:py-36 border-b border-stone-300 dark:border-stone-800 relative bg-[#faf9f5] dark:bg-[#0c0a09] overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         {/* Section Header */}
         <div
-          className={`border-b border-stone-300 dark:border-stone-800 pb-10 mb-16 transition-all duration-700 ${
+          className={`border-b border-stone-300 dark:border-stone-800 pb-6 sm:pb-10 mb-10 sm:mb-16 transition-all duration-700 ${
             isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
-          <div className="font-mono text-xs text-stone-500 dark:text-stone-400 uppercase tracking-widest mb-4">
+          <div className="font-mono text-xs text-stone-500 dark:text-stone-400 uppercase tracking-widest mb-3 sm:mb-4">
             03 — OFF-RESUME LAB
           </div>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-            <h2 className="font-display font-black text-5xl sm:text-7xl md:text-8xl tracking-tight text-stone-900 dark:text-stone-100 leading-[0.88]">
+            <h2 className="font-display font-black text-4xl sm:text-7xl md:text-8xl tracking-tight text-stone-900 dark:text-stone-100 leading-[0.88]">
               <span className="block">THE</span>
               <span className="block text-stone-400 dark:text-stone-600">SIDE</span>
               <span className="block text-accent">QUESTS.</span>
             </h2>
 
             <div className="max-w-md">
-              <p className="text-xl sm:text-2xl text-stone-800 dark:text-stone-200 font-light italic font-serif leading-relaxed mb-3">
+              <p className="text-lg sm:text-2xl text-stone-800 dark:text-stone-200 font-light italic font-serif leading-relaxed mb-2 sm:mb-3">
                 "Not everything I build is going on a resume."
               </p>
               <p className="font-mono text-xs text-stone-500 dark:text-stone-400 leading-normal uppercase tracking-wider">
@@ -95,6 +95,8 @@ export default function SideQuests() {
                     <img
                       src={activeQuest.image}
                       alt={activeQuest.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-44 sm:h-52 object-contain bg-stone-900/60"
                     />
                   </div>

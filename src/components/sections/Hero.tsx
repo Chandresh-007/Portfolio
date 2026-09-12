@@ -13,7 +13,7 @@ export default function Hero() {
       id="home"
       ref={ref}
       aria-label="Introduction"
-      className="min-h-screen pt-32 md:pt-40 pb-16 px-6 md:px-12 flex flex-col justify-between border-b border-stone-300 dark:border-stone-800 relative overflow-hidden bg-[#faf9f5] dark:bg-[#0c0a09]"
+      className="min-h-screen pt-24 sm:pt-32 md:pt-40 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 flex flex-col justify-between border-b border-stone-300 dark:border-stone-800 relative overflow-hidden bg-[#faf9f5] dark:bg-[#0c0a09]"
     >
       {/* React Bits: Laser Flow Background (Subtle Technical Atmosphere) */}
       <div className="absolute inset-0 -z-10 pointer-events-none opacity-20 dark:opacity-25 transition-opacity duration-1000 overflow-hidden">
@@ -32,11 +32,11 @@ export default function Hero() {
 
       {/* Top Editorial Index Row */}
       <div
-        className={`flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-stone-500 dark:text-stone-400 uppercase tracking-widest transition-opacity duration-700 ${
+        className={`flex flex-wrap items-center justify-between gap-3 sm:gap-4 font-mono text-xs text-stone-500 dark:text-stone-400 uppercase tracking-widest transition-opacity duration-700 ${
           isInView ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
           <span className="text-accent font-bold">VOL. 2026</span>
           <span className="text-stone-300 dark:text-stone-700">/</span>
           <span className="font-semibold text-stone-800 dark:text-stone-200">CHANDRESH P</span>
@@ -54,7 +54,7 @@ export default function Hero() {
       </div>
 
       {/* Main Massive Editorial Typography */}
-      <div className="my-auto py-10 md:py-16 relative z-10">
+      <div className="my-auto py-8 sm:py-12 md:py-16 relative z-10">
         <h1
           className={`font-display font-black text-stone-900 dark:text-stone-100 headline-display select-none transition-all duration-1000 ${
             isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -82,16 +82,16 @@ export default function Hero() {
 
         {/* Supporting line */}
         <div
-          className={`mt-8 md:mt-10 max-w-3xl transition-all duration-1000 delay-200 ${
+          className={`mt-6 sm:mt-8 md:mt-10 max-w-3xl transition-all duration-1000 delay-200 ${
             isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
-          <p className="text-xl sm:text-2xl md:text-3xl text-stone-700 dark:text-stone-300 font-normal leading-relaxed tracking-tight mb-8">
+          <p className="text-lg sm:text-2xl md:text-3xl text-stone-700 dark:text-stone-300 font-normal leading-relaxed tracking-tight mb-6 sm:mb-8">
             Computer Science · Builder · Explorer
           </p>
 
           {/* React Bits: Split Flap Text (Compact Technical Status Machine) */}
-          <div className="inline-flex flex-wrap items-center gap-3 p-3 sm:px-4 sm:py-2.5 bg-stone-900 text-stone-100 dark:bg-[#171614] border border-stone-700 dark:border-stone-800 shadow-md">
+          <div className="inline-flex flex-wrap items-center gap-2 sm:gap-3 p-2.5 sm:px-4 sm:py-2.5 bg-stone-900 text-stone-100 dark:bg-[#171614] border border-stone-700 dark:border-stone-800 shadow-md max-w-full">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-accent animate-ping" />
               <span className="font-mono text-[11px] uppercase tracking-widest text-stone-400">
@@ -119,26 +119,26 @@ export default function Hero() {
 
       {/* Technical Metadata Strip */}
       <div
-        className={`pt-8 border-t border-stone-300 dark:border-stone-800 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all duration-700 delay-300 ${
+        className={`pt-6 sm:pt-8 border-t border-stone-300 dark:border-stone-800 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all duration-700 delay-300 ${
           isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}
       >
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-8 font-mono text-xs">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-8 font-mono text-xs">
           <div>
             <span className="text-stone-400 dark:text-stone-500 block text-[10px] tracking-wider uppercase">01 / DISCIPLINE</span>
-            <span className="text-stone-900 dark:text-stone-100 font-medium">3RD YEAR BE CSE</span>
+            <span className="text-stone-900 dark:text-stone-100 font-medium text-[11px] sm:text-xs">3RD YEAR BE CSE</span>
           </div>
           <div>
             <span className="text-stone-400 dark:text-stone-500 block text-[10px] tracking-wider uppercase">02 / LEADERSHIP</span>
-            <span className="text-stone-900 dark:text-stone-100 font-medium">AWS SBG TECH LEAD @ KCE</span>
+            <span className="text-stone-900 dark:text-stone-100 font-medium text-[11px] sm:text-xs">AWS SBG TECH LEAD</span>
           </div>
           <div>
             <span className="text-stone-400 dark:text-stone-500 block text-[10px] tracking-wider uppercase">03 / ACTIVE PERIOD</span>
-            <span className="text-stone-900 dark:text-stone-100 font-medium">ALWAYS</span>
+            <span className="text-stone-900 dark:text-stone-100 font-medium text-[11px] sm:text-xs">ALWAYS</span>
           </div>
           <div>
             <span className="text-stone-400 dark:text-stone-500 block text-[10px] tracking-wider uppercase">04 / FOCUS</span>
-            <span className="text-stone-900 dark:text-stone-100 font-medium">CLOUD · SYSTEMS · AI</span>
+            <span className="text-stone-900 dark:text-stone-100 font-medium text-[11px] sm:text-xs">CLOUD · SYSTEMS · AI</span>
           </div>
         </div>
 

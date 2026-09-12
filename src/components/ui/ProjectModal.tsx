@@ -75,6 +75,8 @@ export default function ProjectModal({ project, image, onClose }: ProjectModalPr
             <img
               src={image}
               alt={project.title}
+              loading="lazy"
+              decoding="async"
               className="w-full max-h-[380px] object-contain rounded-sm"
             />
           </div>

@@ -330,8 +330,18 @@ export const LaserFlow: React.FC<Props> = ({
     });
     rendererRef.current = renderer;
 
-    baseDprRef.current = Math.min(dpr ?? (window.devicePixelRatio || 1), 2);
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    const maxAllowedDpr = isMobile ? 1.0 : 2.0;
+    baseDprRef.current = Math.min(dpr ?? (window.devicePixelRatio || 1), maxAllowedDpr);
     currentDprRef.current = baseDprRef.current;
+
+    const prefersReduced =
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+      pausedRef.current = true;
+    }
 
     renderer.setPixelRatio(currentDprRef.current);
     renderer.shadowMap.enabled = false;

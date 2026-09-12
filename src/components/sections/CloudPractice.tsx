@@ -68,22 +68,22 @@ export default function CloudPractice() {
       id="cloud"
       ref={ref}
       aria-label="AWS Cloud Practice"
-      className="scroll-mt-16 py-28 md:py-36 border-b border-stone-300 dark:border-stone-800 relative bg-[#faf9f5] dark:bg-[#0c0a09]"
+      className="scroll-mt-16 py-16 sm:py-24 md:py-36 border-b border-stone-300 dark:border-stone-800 relative bg-[#faf9f5] dark:bg-[#0c0a09]"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         {/* Section Header */}
         <div
-          className={`border-b border-stone-300 dark:border-stone-800 pb-8 mb-16 transition-all duration-700 ${
+          className={`border-b border-stone-300 dark:border-stone-800 pb-6 sm:pb-8 mb-10 sm:mb-16 transition-all duration-700 ${
             isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
           <div className="font-mono text-xs text-stone-500 dark:text-stone-400 uppercase tracking-widest mb-2.5">
             05 — CLOUD ARCHITECTURE & LEADERSHIP
           </div>
-          <h2 className="font-display font-black text-4xl sm:text-6xl md:text-7xl tracking-tight text-stone-900 dark:text-stone-100 leading-none mb-3">
+          <h2 className="font-display font-black text-3xl sm:text-6xl md:text-7xl tracking-tight text-stone-900 dark:text-stone-100 leading-none mb-3">
             CLOUD, IN PRACTICE.
           </h2>
-          <p className="text-xl md:text-2xl text-stone-700 dark:text-stone-300 font-light max-w-2xl leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-stone-700 dark:text-stone-300 font-light max-w-2xl leading-relaxed">
             "Cloud became much more interesting once I started building with it."
           </p>
         </div>

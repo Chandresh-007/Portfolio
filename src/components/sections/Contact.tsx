@@ -11,23 +11,23 @@ export default function Contact() {
       id="contact"
       ref={ref}
       aria-label="Contact & Colophon"
-      className="scroll-mt-16 py-28 md:py-36 px-6 md:px-12 bg-[#f3f0e8] dark:bg-stone-950 text-stone-900 dark:text-stone-100 border-t border-stone-300 dark:border-stone-800 relative transition-colors duration-200"
+      className="scroll-mt-16 py-16 sm:py-24 md:py-36 px-4 sm:px-6 md:px-12 bg-[#f3f0e8] dark:bg-stone-950 text-stone-900 dark:text-stone-100 border-t border-stone-300 dark:border-stone-800 relative transition-colors duration-200"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Marker */}
-        <div className="flex items-center justify-between font-mono text-xs text-stone-500 dark:text-stone-400 uppercase tracking-widest pb-8 border-b border-stone-300 dark:border-stone-800 mb-16">
+        <div className="flex items-center justify-between font-mono text-xs text-stone-500 dark:text-stone-400 uppercase tracking-widest pb-6 sm:pb-8 border-b border-stone-300 dark:border-stone-800 mb-10 sm:mb-16">
           <div className="flex items-center gap-3">
             <span className="text-accent font-bold">06</span>
             <span>/</span>
             <span>GET IN TOUCH</span>
           </div>
-          <span>COIMBATORE, TAMIL NADU, INDIA</span>
+          <span className="truncate">COIMBATORE, TAMIL NADU, INDIA</span>
         </div>
 
         {/* Big Editorial Callout */}
-        <div className="mb-20">
+        <div className="mb-12 sm:mb-20">
           <h2
-            className={`font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-stone-900 dark:text-white leading-[0.92] transition-all duration-700 ${
+            className={`font-display font-black text-3xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-stone-900 dark:text-white leading-[0.92] transition-all duration-700 ${
               isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
@@ -35,13 +35,13 @@ export default function Contact() {
             <span className="text-accent">WORTH BUILDING?</span>
           </h2>
 
-          <p className="mt-8 text-xl sm:text-2xl text-stone-700 dark:text-stone-300 font-light max-w-2xl leading-relaxed">
+          <p className="mt-6 sm:mt-8 text-lg sm:text-2xl text-stone-700 dark:text-stone-300 font-light max-w-2xl leading-relaxed">
             I'm always interested in talking about cloud architecture, serverless pipelines, DSP challenges, hackathons, or building new tools from scratch.
           </p>
         </div>
 
         {/* Links Grid with Recognizable Icons & Micro-Interactions */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 border-t border-stone-300 dark:border-stone-800 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 sm:pt-12 border-t border-stone-300 dark:border-stone-800 mb-16 sm:mb-24">
           <a
             href={socialLinks.github}
             target="_blank"

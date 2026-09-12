@@ -88,19 +88,19 @@ export default function Skills() {
       id="skills"
       ref={ref}
       aria-label="Technical Skills Index"
-      className="scroll-mt-16 py-28 md:py-36 border-b border-stone-300 dark:border-stone-800 relative bg-[#faf9f5] dark:bg-[#0c0a09]"
+      className="scroll-mt-16 py-16 sm:py-24 md:py-36 border-b border-stone-300 dark:border-stone-800 relative bg-[#faf9f5] dark:bg-[#0c0a09]"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         {/* Header */}
         <div
-          className={`border-b border-stone-300 dark:border-stone-800 pb-10 mb-18 transition-all duration-700 ${
+          className={`border-b border-stone-300 dark:border-stone-800 pb-6 sm:pb-10 mb-12 sm:mb-18 transition-all duration-700 ${
             isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
           <div className="font-mono text-xs text-stone-500 dark:text-stone-400 uppercase tracking-widest mb-2.5">
             04 — TECHNICAL INDEX
           </div>
-          <h2 className="font-display font-black text-4xl sm:text-6xl md:text-7xl tracking-tight text-stone-900 dark:text-stone-100 leading-none mb-3">
+          <h2 className="font-display font-black text-3xl sm:text-6xl md:text-7xl tracking-tight text-stone-900 dark:text-stone-100 leading-none mb-3">
             WHAT I WORK WITH.
           </h2>
           <p className="font-mono text-xs text-stone-500 dark:text-stone-400 max-w-lg leading-relaxed uppercase tracking-wider">
@@ -109,7 +109,7 @@ export default function Skills() {
         </div>
 
         {/* React Bits: Logo Loop Marquee Banner */}
-        <div className="mb-20 p-6 sm:p-8 bg-stone-100/70 dark:bg-[#131110] border border-stone-300 dark:border-stone-800 shadow-sm">
+        <div className="mb-12 sm:mb-20 p-4 sm:p-8 bg-stone-100/70 dark:bg-[#131110] border border-stone-300 dark:border-stone-800 shadow-sm">
           <div className="flex items-center justify-between font-mono text-xs text-stone-400 dark:text-stone-500 uppercase tracking-widest mb-3 font-semibold">
             <span>// CONTINUOUS STACK LOOP</span>
             <span>HOVER TO PAUSE</span>

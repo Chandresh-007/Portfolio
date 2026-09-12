@@ -3,7 +3,7 @@ import { socialLinks } from '../../data/personal';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#f5f3ec] dark:bg-[#0c0a09] border-t border-stone-300 dark:border-stone-800 px-6 md:px-12 py-12 transition-colors duration-200">
+    <footer className="bg-[#f5f3ec] dark:bg-[#0c0a09] border-t border-stone-300 dark:border-stone-800 px-4 sm:px-6 md:px-12 py-10 sm:py-12 transition-colors duration-200">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="text-center md:text-left space-y-1.5">
           <div className="font-display font-black text-xl tracking-tight text-stone-900 dark:text-stone-100">

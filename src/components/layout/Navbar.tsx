@@ -55,31 +55,31 @@ export default function Navbar() {
   );
 
   const extraControls = (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-1.5 sm:gap-2">
       <a
         href={socialLinks.github}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="GitHub Profile"
-        className="p-1.5 rounded-full border border-stone-700 text-stone-300 hover:text-white hover:border-accent bg-[#1f1d1a] transition-all flex items-center justify-center focus-visible:outline-none"
+        className="p-1.5 rounded-full border border-stone-700 text-stone-300 hover:text-white hover:border-accent bg-[#1f1d1a] transition-all flex items-center justify-center focus-visible:outline-none shrink-0"
       >
-        <GithubIcon size={15} />
+        <GithubIcon size={14} />
       </a>
       <a
         href={socialLinks.linkedin}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="LinkedIn Profile"
-        className="p-1.5 rounded-full border border-stone-700 text-stone-300 hover:text-white hover:border-accent bg-[#1f1d1a] transition-all flex items-center justify-center focus-visible:outline-none"
+        className="p-1.5 rounded-full border border-stone-700 text-stone-300 hover:text-white hover:border-accent bg-[#1f1d1a] transition-all flex items-center justify-center focus-visible:outline-none shrink-0"
       >
-        <LinkedinIcon size={15} />
+        <LinkedinIcon size={14} />
       </a>
       <a
         href={`mailto:${socialLinks.email}`}
         aria-label="Send Email"
-        className="p-1.5 rounded-full border border-stone-700 text-stone-300 hover:text-white hover:border-accent bg-[#1f1d1a] transition-all flex items-center justify-center focus-visible:outline-none"
+        className="p-1.5 rounded-full border border-stone-700 text-stone-300 hover:text-white hover:border-accent bg-[#1f1d1a] transition-all flex items-center justify-center focus-visible:outline-none shrink-0"
       >
-        <MailIcon size={15} />
+        <MailIcon size={14} />
       </a>
     </div>
   );
@@ -92,7 +92,7 @@ export default function Navbar() {
       useFixedPosition={true}
       menuBg="#171614"
       menuContentColor="#f5f5f4"
-      className="top-5 px-5 sm:px-8 md:px-12"
+      className="top-4 sm:top-5 px-3 sm:px-8 md:px-12"
     />
   );
 }

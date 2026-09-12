@@ -16,6 +16,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #faf9f5;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -39,6 +41,8 @@
     color: #141413;
     line-height: 1.55;
     overflow-x: hidden;
+    max-width: 100%;
+    position: relative;
   }
 
   :focus-visible {
@@ -99,17 +103,19 @@
 
 @layer utilities {
   .headline-display {
-    font-size: clamp(2.75rem, 8.5vw, 7.5rem);
+    font-size: clamp(2rem, 7.8vw, 7.5rem);
     line-height: 0.94;
     letter-spacing: -0.038em;
     font-weight: 800;
+    overflow-wrap: break-word;
   }
 
   .subheadline-display {
-    font-size: clamp(1.85rem, 4.5vw, 4rem);
+    font-size: clamp(1.5rem, 4.5vw, 4rem);
     line-height: 1.05;
     letter-spacing: -0.028em;
     font-weight: 700;
+    overflow-wrap: break-word;
   }
 
   .no-scrollbar::-webkit-scrollbar {

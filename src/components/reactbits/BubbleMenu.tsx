@@ -1,5 +1,5 @@
 import type { CSSProperties, ReactNode } from 'react';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
 type MenuItem = {
@@ -104,12 +104,12 @@ export default function BubbleMenu({
     .filter(Boolean)
     .join(' ');
 
-  const handleToggle = () => {
+  const handleToggle = useCallback(() => {
     const nextState = !isMenuOpen;
     if (nextState) setShowOverlay(true);
     setIsMenuOpen(nextState);
     onMenuClick?.(nextState);
-  };
+  }, [isMenuOpen, onMenuClick]);
 
   useEffect(() => {
     const overlay = overlayRef.current;
@@ -182,6 +182,24 @@ export default function BubbleMenu({
     return () => window.removeEventListener('resize', handleResize);
   }, [isMenuOpen, menuItems]);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        handleToggle();
+      }
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKey);
+    };
+  }, [isMenuOpen, handleToggle]);
+
   return (
     <>
       {/* Workaround for silly Tailwind capabilities */}
@@ -211,11 +229,15 @@ export default function BubbleMenu({
         }
         @media (max-width: 899px) {
           .bubble-menu-items {
-            padding-top: 120px;
+            padding-top: clamp(80px, 13vh, 110px);
+            padding-bottom: 30px;
             align-items: flex-start;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
           }
           .bubble-menu-items .pill-list {
-            row-gap: 16px;
+            row-gap: 8px;
+            padding-bottom: 20px;
           }
           .bubble-menu-items .pill-list .pill-col {
             flex: 0 0 100% !important;
@@ -223,17 +245,17 @@ export default function BubbleMenu({
             overflow: visible;
           }
           .bubble-menu-items .pill-link {
-            font-size: clamp(1.2rem, 3vw, 4rem);
-            padding: clamp(1rem, 2vw, 2rem) 0;
-            min-height: 80px !important;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            padding: 0.6rem 0;
+            min-height: 48px !important;
           }
           .bubble-menu-items .pill-link:hover {
-            transform: scale(1.06);
+            transform: scale(1.03);
             background: var(--hover-bg);
             color: var(--hover-color);
           }
           .bubble-menu-items .pill-link:active {
-            transform: scale(.94);
+            transform: scale(.97);
           }
         }
       `}</style>
@@ -328,9 +350,13 @@ export default function BubbleMenu({
             'inset-0',
             'flex items-center justify-center',
             'bg-black/60 dark:bg-black/80 backdrop-blur-md',
-            'pointer-events-none',
+            'pointer-events-auto',
+            'overflow-y-auto max-h-screen',
             'z-[1000]'
           ].join(' ')}
+          onClick={(e) => {
+            if (e.target === overlayRef.current) handleToggle();
+          }}
           aria-hidden={!isMenuOpen}
         >
           <ul

@@ -75,7 +75,19 @@ const AccordionGallery = ({
   const firstRunRef = useRef(true);
   const mediaSizeRef = useRef(320);
 
-  const vertical = orientation === 'vertical';
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth < 768 : false
+  );
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mql = window.matchMedia('(max-width: 767px)');
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mql.addEventListener('change', onChange);
+    return () => mql.removeEventListener('change', onChange);
+  }, []);
+
+  const vertical = orientation === 'vertical' || isMobile;
   const count = items.length;
   const [active, setActive] = useState(Math.min(Math.max(defaultIndex, 0), count - 1));
 
@@ -191,7 +203,7 @@ const AccordionGallery = ({
   );
 
   const handleEnter = (i: number) => {
-    if (trigger === 'hover') setActive(i);
+    if (trigger === 'hover' && !vertical) setActive(i);
   };
 
   const handleClick = (i: number, e: MouseEvent) => {
@@ -211,11 +223,13 @@ const AccordionGallery = ({
     }
   };
 
+  const calculatedHeight = vertical ? Math.max(600, count * 50 + 200) : height;
+
   return (
     <div
       ref={rootRef}
-      className={`flex ${vertical ? 'flex-col' : 'flex-row'} w-full max-w-full [perspective:1400px] max-[520px]:!flex-col max-[520px]:[perspective:none] ${className}`}
-      style={{ gap: `${gap}px`, height: vertical ? `${Math.round(height * 1.6)}px` : `${height}px` }}
+      className={`flex ${vertical ? 'flex-col [perspective:none]' : 'flex-row [perspective:1400px]'} w-full max-w-full ${className}`}
+      style={{ gap: `${gap}px`, height: `${calculatedHeight}px` }}
       role="list"
       aria-label="Image accordion gallery"
     >
@@ -228,7 +242,7 @@ const AccordionGallery = ({
             ref={(el: HTMLElement | null) => {
               panelRefs.current[i] = el;
             }}
-            className="group relative block min-w-0 min-h-0 flex-[1_1_0] cursor-pointer overflow-hidden bg-[#0a0713] no-underline outline-none [transform-style:preserve-3d] [transform-origin:center] [box-shadow:0_10px_30px_-18px_rgba(0,0,0,0.8)] focus-visible:[box-shadow:0_0_0_2px_var(--ag-accent),0_10px_30px_-18px_rgba(0,0,0,0.8)] max-[520px]:min-h-[84px] max-[520px]:!transform-none"
+            className={`group relative block min-w-0 min-h-0 flex-[1_1_0] cursor-pointer overflow-hidden bg-[#0a0713] no-underline outline-none ${vertical ? 'min-h-[48px] !transform-none' : '[transform-style:preserve-3d] [transform-origin:center]'} [box-shadow:0_10px_30px_-18px_rgba(0,0,0,0.8)] focus-visible:[box-shadow:0_0_0_2px_var(--ag-accent),0_10px_30px_-18px_rgba(0,0,0,0.8)]`}
             style={
               {
                 borderRadius: `${radius}px`,
@@ -261,6 +275,8 @@ const AccordionGallery = ({
                 <img
                   src={item.image}
                   alt={item.alt || item.label || ''}
+                  loading="lazy"
+                  decoding="async"
                   draggable={false}
                   className="block h-full w-full select-none object-cover [-webkit-user-drag:none]"
                 />
