@@ -239,3 +239,37 @@ aws cloudfront create-invalidation \
 * **Zero Credentials in Bundle**: No AWS access keys, secret keys, IAM credentials, or private tokens exist in the source or bundle.
 * **No Amplify Dependencies**: The portfolio hosting has no dependency on AWS Amplify Hosting CLI or `amplify.yml`. (MoodScape's architectural mention of Amplify remains an accurate description of that project's independent cloud stack).
 * **Relative Base Path**: Vite is configured with `base: '/'`, ensuring all asset URLs cleanly resolve against the CloudFront distribution domain root.
+
+---
+
+## 7. Vercel Deployment (Alternative Edge Hosting)
+
+The portfolio is fully configured for deployment on Vercel with automatic SPA routing rewrites and immutable asset caching (`vercel.json`).
+
+### Method A: Connect GitHub (Recommended - Zero Config)
+
+1. Open [https://vercel.com/new](https://vercel.com/new).
+2. Sign in with GitHub (`Chandresh-007`).
+3. Click **Import** next to `Chandresh-007/Portfolio`.
+4. Vercel automatically detects the Vite framework preset:
+   * **Framework Preset**: `Vite`
+   * **Root Directory**: `./`
+   * **Build Command**: `npm run build`
+   * **Output Directory**: `dist`
+5. Click **Deploy**.
+6. Deployment finishes in ~30 seconds and assigns an edge URL: `https://chandresh-portfolio.vercel.app`.
+7. Future commits pushed to `main` will automatically build and deploy.
+
+### Method B: Deploy via Vercel CLI
+
+```powershell
+# 1. Login to Vercel
+npx vercel login
+
+# 2. Deploy preview build
+npx vercel
+
+# 3. Deploy directly to production
+npx vercel --prod
+```
+
